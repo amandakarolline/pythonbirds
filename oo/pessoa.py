@@ -1,5 +1,5 @@
 class Pessoa:
-    #atributo default ou atributo de classe
+    # atributo default ou atributo de classe
     olhos = 2
 
     def __init__(self, *filhos, nome=None, idade=35):
@@ -21,15 +21,15 @@ if __name__ == '__main__':
     print(luciano.idade)
     for filho in luciano.filhos:
         print(filho.nome)
-    #criano do atributo dinâmico, vai aparecer apenas para o objeto luciano
+    # criano do atributo dinâmico, vai aparecer apenas para o objeto luciano
     luciano.sobrenome = 'Ramalho'
-    #removendo atributo dinamicamente, vai ser removido apenas do objeto luciano
+    # removendo atributo dinamicamente, vai ser removido apenas do objeto luciano
     del luciano.filhos
-    #mudano o valor do atributo olhos apenas para luciano
+    # mudano o valor do atributo olhos apenas para luciano
     luciano.olhos = 1
-    #apagando o atributo olhos apenas para luciano, mas permanece na classe
+    # apagando o atributo olhos apenas para luciano, mas permanece na classe
     del luciano.olhos
-    #verificando quais os atributos existem para cada um
+    # verificando quais os atributos existem para cada um
     print(luciano.__dict__)
     print(renzo.__dict__)
     Pessoa.olhos = 3
