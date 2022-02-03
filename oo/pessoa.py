@@ -7,6 +7,7 @@ class Pessoa:
     def cumprimentar(self):
         return f'Olá{id(self)}'
 
+
 if __name__ == '__main__':
     renzo = Pessoa(nome='Renzo')
     luciano = Pessoa(renzo, nome='Luciano')
@@ -17,3 +18,10 @@ if __name__ == '__main__':
     print(luciano.idade)
     for filho in luciano.filhos:
         print(filho.nome)
+    #criano do atributo dinâmico, vai aparecer apenas para o objeto luciano
+    luciano.sobrenome = 'Ramalho'
+    #removendo atributo dinamicamente, vai ser removido apenas do objeto luciano
+    del luciano.filhos
+    #verificando quais os atributos existem para cada um
+    print(luciano.__dict__)
+    print(renzo.__dict__)
