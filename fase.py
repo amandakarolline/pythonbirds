@@ -36,7 +36,6 @@ class Fase():
         self._porcos = []
         self._obstaculos = []
 
-
     def adicionar_obstaculo(self, *obstaculos):
         """
         Adiciona obstáculos em uma fase
@@ -96,7 +95,6 @@ class Fase():
                 passaro.lancar(angulo, tempo)
                 break
 
-
     def calcular_pontos(self, tempo):
         """
         Lógica que retorna os pontos a serem exibidos na tela.
@@ -120,8 +118,8 @@ class Fase():
 
     def _possui_porco_ativo(self):
         for porco in self._porcos:
-            if porco.status==ATIVO:
-                return  True
+            if porco.status == ATIVO:
+                return True
         return False
 
     def _possui_passaros_ativos(self):
@@ -129,4 +127,3 @@ class Fase():
             if passaro.status == ATIVO:
                 return True
         return False
-

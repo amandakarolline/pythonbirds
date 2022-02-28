@@ -20,11 +20,12 @@ from atores import Obstaculo, Porco, PassaroVermelho, PassaroAmarelo, DESTRUIDO,
     Ator, Passaro
 from fase import Fase, Ponto, EM_ANDAMENTO, VITORIA, DERROTA
 
+
 class FaseTestes(TestCase):
     def teste_acabou_com_porcos_e_passaros(self):
         fase = Fase()
-        porcos = [Porco(1, 1) for i in range(2)]  # criando 2 porcos
-        passaros = [PassaroAmarelo(1, 1) for i in range(2)]  # criando 2 pássaros
+        porcos = [Porco(1, 1) for _ in range(2)]  # criando 2 porcos
+        passaros = [PassaroAmarelo(1, 1) for _ in range(2)]  # criando 2 pássaros
         fase.adicionar_porco(*porcos)
         fase.adicionar_passaro(*passaros)
 
@@ -48,8 +49,8 @@ class FaseTestes(TestCase):
 
     def teste_status(self):
         fase = Fase()
-        porcos = [Porco(1, 1) for i in range(2)]
-        passaros = [PassaroAmarelo(1, 1) for i in range(2)]
+        porcos = [Porco(1, 1) for _ in range(2)]
+        passaros = [PassaroAmarelo(1, 1) for _ in range(2)]
         fase.adicionar_porco(*porcos)
         fase.adicionar_passaro(*passaros)
         self.assertEqual(EM_ANDAMENTO, fase.status())
@@ -85,7 +86,7 @@ class FaseTestes(TestCase):
         self.assertFalse(passaro_amarelo.foi_lancado())
         fase.lancar(90, 1)
         fase.lancar(45, 3)
-        fase.lancar(31, 5)  # testando que lançar passaros depios de todos lançados não causa erro
+        fase.lancar(31, 5)  # testando que lançar passaros depois de todos lançados não causa erro
 
         self.assertTrue(passaro_vermelho.foi_lancado())
         self.assertEqual(math.radians(90), passaro_vermelho._angulo_de_lancamento)
